@@ -84,7 +84,7 @@ def server(log_buffer=sys.stderr):
         #       close the server socket and exit from the server function.
         #       Replace the call to `pass` below, which is only there to
         #       prevent syntax problems
-        #pass
+        # pass
         sock.close()
         print('quitting echo server', file=log_buffer)
 
