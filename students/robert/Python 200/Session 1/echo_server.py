@@ -9,7 +9,7 @@ def server(log_buffer=sys.stderr):
     address = ('127.0.0.1', 10000)
     # TODO: Replace the following line with your code which will instantiate
     #       a TCP socket with IPv4 Addressing, call the socket you make 'sock'
-    #sock = None
+    # sock = None
     sock = socket.socket(
         socket.AF_INET,
         socket.SOCK_STREAM,
@@ -41,11 +41,10 @@ def server(log_buffer=sys.stderr):
             #       the client so we can report it below.  Replace the
             #       following line with your code. It is only here to prevent
             #       syntax errors
-            #addr = ('bar', 'baz')
+            # addr = ('bar', 'baz')
             conn, addr = sock.accept()
             try:
-                # print('connection - {0}:{1}'.format(*addr), file=log_buffer)            
-
+                print('connection - {0}:{1}'.format(*addr), file=log_buffer)            
                 # the inner loop will receive messages sent by the client in
                 # buffers.  When a complete message has been received, the
                 # loop will exit
@@ -55,8 +54,8 @@ def server(log_buffer=sys.stderr):
                     #       following line with your code.  It's only here as
                     #       a placeholder to prevent an error in string
                     #       formatting
-                    #data = b''
-                    #print('received "{0}"'.format(data.decode('utf8')))
+                    # data = b''
+                    # print('received "{0}"'.format(data.decode('utf8')))
                     buffer_size = 16 
                     data = conn.recv(buffer_size)
                     print('received "{0}"'.format(data.decode('utf8')))
@@ -64,7 +63,7 @@ def server(log_buffer=sys.stderr):
                     # the fact using the print statement here.  It will help in
                     # debugging problems.
                     conn.sendall(data)
-                    #    .encode('utf8'))
+                    # .encode('utf8'))
                     print('sent "{0}"'.format(data.decode('utf8')))
                     # TODO: Check here to see if the message you've received is
                     # complete.  If it is, break out of this inner loop.
