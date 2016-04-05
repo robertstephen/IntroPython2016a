@@ -23,7 +23,7 @@ def server(log_buffer=sys.stderr):
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     # log that we are building a server
-    # print("making a server on {0}:{1}".format(*address), file=log_buffer)
+    print("making a server on {0}:{1}".format(*address), file=log_buffer)
 
     # TODO: bind your new sock 'sock' to the address above and begin to listen
     #       for incoming connections
@@ -34,7 +34,7 @@ def server(log_buffer=sys.stderr):
         # the outer loop controls the creation of new connection sockets. The
         # server will handle each incoming connection one at a time.
         while True:
-            # print('waiting for a connection', file=log_buffer)
+            print('waiting for a connection', file=log_buffer)
 
             # TODO: make a new socket when a client connects, call it 'conn',
             #       at the same time you should be able to get the address of
@@ -75,9 +75,9 @@ def server(log_buffer=sys.stderr):
                 #       be hit. Use that opportunity to close the socket you
                 #       created above when a client connected.
                 conn.close()
-                # print(
-                    # 'echo complete, client connection closed', file=log_buffer
-                # )
+                print(
+                    'echo complete, client connection closed', file=log_buffer
+                )
 
     except KeyboardInterrupt:
         # TODO: Use the python KeyboardInterrupt exception as a signal to
@@ -86,7 +86,7 @@ def server(log_buffer=sys.stderr):
         #       prevent syntax problems
         #pass
         sock.close()
-        # print('quitting echo server', file=log_buffer)
+        print('quitting echo server', file=log_buffer)
 
 
 if __name__ == '__main__':

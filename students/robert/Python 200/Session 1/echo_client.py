@@ -25,7 +25,7 @@ def client(msg, log_buffer=sys.stderr):
     # this try/finally block exists purely to allow us to close the socket
     # when we are finished with it
     try:
-        # print('sending "{0}"'.format(msg), file=log_buffer)
+        print('sending "{0}"'.format(msg), file=log_buffer)
         # TODO: send your message to the server here.
         # strToSend = 'Hey, can you hear me?'
         sock.sendall(msg.encode('utf8'))
@@ -41,7 +41,7 @@ def client(msg, log_buffer=sys.stderr):
         strReceivedLen = 0
         while True:
             chunk = sock.recv(buffer_size)
-            # print('received "{0}"'.format(chunk.decode('utf8')), file=log_buffer)
+            print('received "{0}"'.format(chunk.decode('utf8')), file=log_buffer)
             received_message += chunk    
             strReceivedLen += len(chunk)
             if strLen == strReceivedLen:
@@ -51,7 +51,7 @@ def client(msg, log_buffer=sys.stderr):
         # TODO: after you break out of the loop receiving echoed chunks from
         #       the server you will want to close your client socket.
         sock.close()
-        # print('closing socket', file=log_buffer)
+        print('closing socket', file=log_buffer)
 
         # TODO: when all is said and done, you should return the entire reply
         # you received from the server as the return value of this function.
